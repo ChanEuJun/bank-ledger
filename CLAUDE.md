@@ -2,6 +2,10 @@
 
 End-to-end bank ledger project to learn concurrency and practice using mattpocock/skills.
 
+## Public repo: privacy rule
+
+This repo and its GitHub issues are public. Never mention employers, job descriptions, interviews, CVs or job-search context in any committed file, commit message, issue, comment or PR. The original build plan (`Ledger Build Spec.md`) is a private, gitignored local file: read it for engineering content only, and never quote its non-engineering parts.
+
 ## Agent skills
 
 ### Issue tracker

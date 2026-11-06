@@ -1,0 +1,44 @@
+{
+  "id": "4f7bff3f-0107-458b-8f64-ec74c27784d0",
+  "prevId": "b61be105-d5c9-4cb3-92fa-4a6af6ae9acb",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.hello": {
+      "name": "hello",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "message": {
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

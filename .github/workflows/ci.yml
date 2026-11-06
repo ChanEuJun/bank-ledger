@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ledger
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      MIGRATION_DATABASE_URL: postgres://postgres:postgres@localhost:5432/ledger
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/ledger
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      # No database variables here: `next build` must never touch the database.
+      - name: Build
+        run: pnpm build
+        env:
+          DATABASE_URL: ""
+          MIGRATION_DATABASE_URL: ""
+      - run: pnpm --filter @ledger/db db:migrate
+      - run: pnpm test

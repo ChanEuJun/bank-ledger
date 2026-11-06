@@ -1,0 +1,20 @@
+{
+  "name": "bank-ledger",
+  "private": true,
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.5",
+    "turbo": "^2.11.10",
+    "typescript": "^5.9.3"
+  }
+}
